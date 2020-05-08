@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Test_API",
+    "version": "1.0",
+    "description": "TESTTT"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/ingenio/signup": {
+      "post": {
+        "summary": "",
+        "operationId": "post-ingenio-signup",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Registro ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "firstName",
+                  "lastName"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {}
+  }
+}
