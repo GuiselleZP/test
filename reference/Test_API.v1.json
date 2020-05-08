@@ -15,19 +15,17 @@
       "post": {
         "summary": "",
         "operationId": "post-ingenio-signup",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
         "description": "Registro ",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
+                "type": [
+                  "object",
+                  "string"
+                ],
                 "properties": {
-                  "firstName": {
+                  "name": {
                     "type": "string"
                   },
                   "lastName": {
@@ -35,9 +33,64 @@
                   }
                 },
                 "required": [
-                  "firstName",
+                  "name",
                   "lastName"
                 ]
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "firstName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/signin": {
+      "post": {
+        "summary": "",
+        "operationId": "post-user-signin",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
               },
               "examples": {}
             }
@@ -48,6 +101,29 @@
     }
   },
   "components": {
-    "securitySchemes": {}
+    "securitySchemes": {},
+    "schemas": {
+      "tesr": {
+        "title": "tesr",
+        "type": "object",
+        "description": "",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "date"
+          },
+          "name": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    }
   }
 }
